@@ -18,11 +18,10 @@ public class CuentaServiceImpl implements CuentaService {
 
     @Override
     public Cuenta crearCuenta(Cuenta cuenta) {
-        // Cuenta existeCuenta =
-        // this.cuentaRepository.findById(cuenta.getNumeroCuenta()).get();
-        // if (null != existeCuenta) {
-        // return null;
-        // }
+        Cuenta existeCuenta = this.cuentaRepository.findById(cuenta.getNumeroCuenta()).get();
+        if (null != existeCuenta) {
+            return null;
+        }
 
         if (cuenta.getSaldo() >= 500) {
             cuenta.setEstado(true);

@@ -26,21 +26,21 @@ public class MovimientoServiceImpl implements MovimientoService {
 
     @Override
     public Movimiento crearMovimiento(Movimiento movimiento) {
-        Cuenta existeCuenta = this.cuentaRepository.findById(movimiento.getCuenta().getNumeroCuenta()).get();
-        if ((null != existeCuenta) && existeCuenta.isEstado() == true) {
-            if (movimiento.getTipoMovimiento() == 'C') {
-                existeCuenta.setSaldo(existeCuenta.getSaldo() + movimiento.getMonto());
-            } else if (movimiento.getTipoMovimiento() == 'D') {
-                if (existeCuenta.getSaldo() >= 0) {
-                    existeCuenta.setSaldo(existeCuenta.getSaldo() - movimiento.getMonto());
-                } else {
-                    if (existeCuenta.isSobregiro() == true) {
-                        existeCuenta.setSaldo(existeCuenta.getSaldo() - movimiento.getMonto());
-                        
-                    }
-                }
-            }
-        }
+        // Cuenta existeCuenta = this.cuentaRepository.findById(movimiento.getCuenta().getNumeroCuenta()).get();
+        // if ((null != existeCuenta) && existeCuenta.isEstado() == true) {
+        //     if (movimiento.getTipoMovimiento() == 'C') {
+        //         existeCuenta.setSaldo(existeCuenta.getSaldo() + movimiento.getMonto());
+        //     } else if (movimiento.getTipoMovimiento() == 'D') {
+        //         if (existeCuenta.getSaldo() >= 0) {
+        //             existeCuenta.setSaldo(existeCuenta.getSaldo() - movimiento.getMonto());
+        //         } else {
+        //             if (existeCuenta.isSobregiro() == true) {
+        //                 existeCuenta.setSaldo(existeCuenta.getSaldo() - movimiento.getMonto());
+
+        //             }
+        //         }
+        //     }
+        // }
         throw new UnsupportedOperationException("Unimplemented method 'crearMovimiento'");
     }
 
